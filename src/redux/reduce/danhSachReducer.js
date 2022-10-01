@@ -184,7 +184,6 @@ const chairList = [
 ]
 
 export const danhSachReducer  = (state = chairList, action) => {
-    console.log(action)
     switch (action.type) {
         case "THEM_GHE":
             for (let i = 0; i < state.length; i++) {
@@ -195,7 +194,6 @@ export const danhSachReducer  = (state = chairList, action) => {
                     
                 }
             }
-            console.log(state)
             return [...state];
         case "XOA_GHE":
             for (let i = 0; i < state.length; i++) {
@@ -206,7 +204,6 @@ export const danhSachReducer  = (state = chairList, action) => {
                     
                 }
             }
-            console.log(state)
             return [...state];
         default:
             return state;

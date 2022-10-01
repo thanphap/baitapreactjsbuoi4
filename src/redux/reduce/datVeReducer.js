@@ -1,7 +1,6 @@
 const datVe = []
 
 export const datVeReducer  = (state = datVe, action) => {
-    console.log(action)
     switch (action.type) {
         case "THEM_GHE":
             let gheFind = state.find((ghe) => { 
@@ -11,7 +10,6 @@ export const datVeReducer  = (state = datVe, action) => {
                 let gheTicket = {...action.ticket, order: true}
                 state.push(gheTicket);
              }
-             console.log(state)
             return [...state];
         case "XOA_GHE":
             let ticketUpdate = state.filter((ve) => { 
