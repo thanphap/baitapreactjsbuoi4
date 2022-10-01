@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import ChonGhe from './ChonGhe'
-import DanhSachGhe from './DanhSachGhe'
 
+import DanhSachGhe from './DanhSachGhe'
+import ChonGhe from './ChonGhe'
 import "./datVe.css"
 
 export default class DatVe extends Component {

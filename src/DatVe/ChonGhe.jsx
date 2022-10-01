@@ -4,21 +4,26 @@ import { connect } from 'react-redux'
 
 class ChonGhe extends Component {
     renderTicket = () => {
+        let { chairList } = this.props
         let tongTien = 0;
         return <tbody>
-            {this.props.datVe.map((ve) => {
-                tongTien += ve.gia;
-                return <tr key={`ticket-${ve.soGhe}`} className='text-warning'>
-                    <td>{ve.soGhe}</td>
-                    <td>{ve.gia}</td>
-                    <td><button onClick={() => {
-                        let action = {
-                            type: "XOA_GHE",
-                            veXoa: ve.soGhe
-                        }
-                        this.props.dispatch(action);
-                    }} className='bg-transparent text-danger border-0'>X</button></td>
-                </tr>
+            {chairList.map((chairs) => {
+                return chairs.danhSachGhe.map((chair) => {
+                    if (chair.order) {
+                        tongTien += chair.gia;
+                        return <tr key={`ticket-${chair.soGhe}`} className='text-warning'>
+                            <td>{chair.soGhe}</td>
+                            <td>{chair.gia}</td>
+                            <td><button onClick={() => {
+                                let action = {
+                                    type: "XOA_GHE",
+                                    removeChair: chair.soGhe
+                                }
+                                this.props.dispatch(action);
+                            }} className='bg-transparent text-danger border-0'>X</button></td>
+                        </tr>
+                    }
+                })
             })}
             <tr>
                 <td className='text-white'>Tổng tiền</td>
@@ -46,7 +51,7 @@ class ChonGhe extends Component {
 
 const mapStateToProps = (rootReducer) => {
     return {
-        datVe: rootReducer.datVeReducer
+        chairList: rootReducer.danhSachReducer
     }
 }
 

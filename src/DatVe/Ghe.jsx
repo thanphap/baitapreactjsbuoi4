@@ -16,7 +16,7 @@ class Ghe extends Component {
             <button onClick={() => {
                 const action = {
                     type: "THEM_GHE",
-                    ticket: chair
+                    addChair: chair
                 }
                 this.props.dispatch(action)
             }} className={classChange}>{chair.soGhe.slice(1)}</button>
