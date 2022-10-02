@@ -1,9 +1,7 @@
 import {combineReducers, createStore} from "redux" 
 import { danhSachReducer } from "./reduce/danhSachReducer"
-import { datVeReducer } from "./reduce/datVeReducer"
 
 const rootReducer = combineReducers({
-    datVeReducer,
     danhSachReducer
 })
 

@@ -188,8 +188,8 @@ export const danhSachReducer  = (state = chairList, action) => {
         case "THEM_GHE":
             for (let i = 0; i < state.length; i++) {
                 for (let j = 0; j < state[i].danhSachGhe.length; j++) {
-                    if (state[i].danhSachGhe[j].soGhe === action.ticket.soGhe) {
-                        state[i].danhSachGhe[j] = {...action.ticket, order: true}
+                    if (state[i].danhSachGhe[j].soGhe === action.addChair.soGhe && !action.addChair.daDat) {
+                        state[i].danhSachGhe[j] = {...action.addChair, order: true}
                     }
                     
                 }
@@ -198,7 +198,7 @@ export const danhSachReducer  = (state = chairList, action) => {
         case "XOA_GHE":
             for (let i = 0; i < state.length; i++) {
                 for (let j = 0; j < state[i].danhSachGhe.length; j++) {
-                    if (state[i].danhSachGhe[j].soGhe === action.veXoa) {
+                    if (state[i].danhSachGhe[j].soGhe === action.removeChair) {
                         state[i].danhSachGhe[j] = {...state[i].danhSachGhe[j], order: false}
                     }
                     
